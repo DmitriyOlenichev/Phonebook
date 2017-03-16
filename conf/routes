@@ -1,0 +1,24 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                          controllers.HomeController.index
+
+# list
+GET     /contacts                  controllers.HomeController.list(filter ?= "")
+
+# Add contact
+GET     /contacts/new              controllers.HomeController.create
+POST    /contacts                  controllers.HomeController.save
+
+# Delete contact
+GET    /contacts/:id/delete       controllers.HomeController.delete(id:Long)
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file              controllers.Assets.at(path="/public", file)
+
+# Ajax
+GET   /count          controllers.HomeController.count(f ?= "")
+
+    

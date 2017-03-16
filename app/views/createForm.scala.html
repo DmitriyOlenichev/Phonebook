@@ -1,0 +1,25 @@
+@(contactForm: Form[Contact])(implicit messages: Messages, request: play.api.mvc.RequestHeader)
+@import b3.vertical.fieldConstructor
+
+@main() {
+<div id="new-contact-container">
+  <h2 id="new-contact">@Messages("phone-book.new")</h2>
+
+  @b3.form(routes.HomeController.save()) {
+
+    <fieldset>
+      @b3.text(contactForm("name"), '_label -> "Имя", '_help -> "")
+      @b3.text(contactForm("phone"), '_label -> "Телефон",  /*, '_error -> "An error occurred!"*/
+        '_help -> "От 5 цифр, например +79870203948")
+    </fieldset>
+
+    <div class="actions">
+      @b3.free('_id -> "idFormGroup") {
+        <button type="submit" class="btn btn-primary"> <span class="glyphicon glyphicon-ok q-btn-submit"></span> @Messages("save")</button>
+        <a class="btn btn-default" href="@routes.HomeController.list()"> <span class="glyphicon glyphicon-remove"></span> @Messages("back")</a>
+      }
+    </div>
+
+  }
+</div>
+}

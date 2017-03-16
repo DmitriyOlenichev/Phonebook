@@ -1,0 +1,18 @@
+phone-book.title={0,choice,0#Пока нету контактов|0<Всего контактов: {0,number,integer}}
+phone-book.mainTitle=Телефонный справочник
+phone-book.name=Имя
+phone-book.phone=Номер телефона
+phone-book.new=Добавить новый контакт
+phone-book.created=Добавлен новый контакт с именем "{0}"
+phone-book.deleted=Контакт удален!
+phone-book.found=Найдено:
+
+filterPlaceholder=Введите часть имени
+phoneUniqueError=Такой номер уже существует!
+phoneFormatError=Неверный номер!
+
+back=Назад
+save=Сохранить
+cancel=Отмена
+delete=Удалить
+show=Показать

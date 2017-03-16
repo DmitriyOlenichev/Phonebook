@@ -1,0 +1,27 @@
+@()(content: Html)(implicit messages: Messages, request: play.api.mvc.RequestHeader)  @**@
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        @helper.javascriptRouter("jsRoutes")(
+            routes.javascript.HomeController.count
+        )
+        <meta charset="utf-8">
+        <title>@Messages("phone-book.mainTitle")</title>
+
+        <script src="@routes.Assets.at("javascripts/jquery-3.1.1.min.js")"></script>
+        <script src="@routes.Assets.at("javascripts/main.js")"></script>
+
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+        <link rel="stylesheet" type="text/css" media="screen" href="@routes.Assets.at("stylesheets/bootstrap.min.css")">
+
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+
+    </head>
+    <body>
+        <div id="main-container">
+            @content
+        </div>
+    </body>
+</html>

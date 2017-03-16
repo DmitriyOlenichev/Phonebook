@@ -1,0 +1,56 @@
+@(contacts: List[Contact], currentFilter: String)(implicit messages: Messages, request: play.api.mvc.RequestHeader, flash: play.api.mvc.Flash)
+
+@import helper._
+@import b3.vertical.fieldConstructor
+
+@main() {
+    @flash.get("success").map { message =>
+        <div class="alert alert-success">
+            <strong>Готово!&nbsp</strong>@message
+        </div>
+    }
+
+    <h2>@Messages("phone-book.title", contacts.length)</h2>
+
+    <div id="table-head-container">
+        @b3.form(action=routes.HomeController.list()) {
+            <div id="search-container">
+                <input type="search" class="form-control" id="search-box" name="filter" autocomplete="off" value="@currentFilter" placeholder="@Messages("filterPlaceholder")">
+                <div id="search-count">
+                    <span>@Messages("phone-book.found")&nbsp</span>
+                    <span id="count"></span>
+                </div>
+            </div>
+                <input type="submit" id="search-submit" value="@Messages("show")" class="btn primary btn-success">
+
+        }
+
+        <a class="btn btn-primary q-button" id="add" href="@routes.HomeController.create()">@Messages("phone-book.new")</a>
+    </div>
+
+    <div id="main-table-container">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>@Messages("phone-book.name")</th>
+                    <th>@Messages("phone-book.phone")</th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+            @contacts.map { contact =>
+                <tr>
+                    <td>@contact.name</td>
+                    <td>@contact.phone</td>
+                    <td class="delete-col">
+                        <a href="@routes.HomeController.delete(contact.id.get)">@b3.reset('class -> "btn btn-danger"){ <span class="glyphicon glyphicon-remove"></span> Удалить }</a>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+
+}

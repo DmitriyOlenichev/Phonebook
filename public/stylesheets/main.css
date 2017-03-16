@@ -1,0 +1,69 @@
+#main-container {
+    padding: 6px 26px;
+    position: relative;
+    border-bottom: 1px solid #ccc;
+    min-height: 500px;
+    width: 796px;
+    margin: auto;
+}
+#main-table-container {
+    height: 620px;
+    overflow: auto;
+    margin-top: 14px;
+}
+#main-table-container table {
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+#main-table-container table td {
+    vertical-align: middle;
+}
+#search-container {
+    margin: 0 12px 33px 0;
+    display: inline-block;
+    width: 184px;
+    position: relative;
+    top: 1px;
+
+}
+#main-table-container table td.delete-col div.form-group {
+    text-align: right;
+    margin-bottom: 0px !important;
+}
+#search-count {
+    position: absolute;
+    display: none;
+    width: 100%;
+    text-align: center;
+    bottom: -22px;
+    border-radius: 3px;
+    background: rgba(204, 204, 204, 0.58);
+    opacity: 0.6;
+}
+#search-submit {
+    vertical-align: top;
+}
+
+#new-contact-container {
+    width: 405px;
+    margin: auto;
+}
+.form-group input:invalid {
+    /*border: 2px solid red;*/
+    color: red;
+}
+
+.form-group input:valid {
+    /*border: 2px solid green;*/
+    color: darkgreen;
+}
+.q-btn-submit {
+    margin-right: 10px;
+}
+h1#new-contact {
+    /*padding-left: 30px;*/
+    margin-bottom: 40px;
+}
+h2 {
+    margin-bottom: 28px; !important;
+}
